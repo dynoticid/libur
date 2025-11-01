@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dynotic Sedang Dalam Waktu Istirahat</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Outfit", sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(160deg, #4c1d95 0%, #7e22ce 50%, #a78bfa 100%);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #f5f3ff;
+      text-align: center;
+      flex-direction: column;
+      overflow: hidden;
+      position: relative;
+      padding: 40px 20px 0;
+    }
+
+    main {
+      z-index: 2;
+      animation: fadeIn 1.8s ease;
+      max-width: 90%;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 6vw, 3.2rem);
+      font-weight: 700;
+      background: linear-gradient(90deg, #ffffff, #ddd6fe);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 25px rgba(255,255,255,0.15);
+      margin-bottom: 14px;
+    }
+
+    p {
+      font-size: clamp(1rem, 3.5vw, 1.2rem);
+      color: #f3e8ff;
+      opacity: 0.95;
+      line-height: 1.6;
+      margin-bottom: 25px;
+      padding: 0 10px;
+    }
+
+    .btn {
+      background: #ffffff;
+      color: #6d28d9;
+      font-weight: 600;
+      padding: 12px 26px;
+      border-radius: 12px;
+      text-decoration: none;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      display: inline-block;
+      margin-bottom: 40px;
+    }
+
+    .btn:hover {
+      background: #ede9fe;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    img {
+      width: min(85%, 420px);
+      height: auto;
+      opacity: 0.8;
+      border-radius: 20px 20px 0 0;
+      filter: drop-shadow(0 0 15px rgba(255,255,255,0.25));
+      animation: floatImg 5s ease-in-out infinite alternate;
+      object-fit: contain;
+      margin-bottom: -4px;
+    }
+
+    @keyframes floatImg {
+      from { transform: translateY(0); }
+      to { transform: translateY(-6px); }
+    }
+
+    .aura {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      filter: blur(100px);
+      animation: float 10s infinite alternate ease-in-out;
+      z-index: 0;
+    }
+
+    .aura:nth-child(1) {
+      top: -120px;
+      left: -100px;
+    }
+
+    .aura:nth-child(2) {
+      bottom: -120px;
+      right: -100px;
+      animation-delay: 3s;
+    }
+
+    @keyframes float {
+      from { transform: translate(0, 0); }
+      to { transform: translate(40px, -30px); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    footer {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+    }
+  </style>
+</head>
+<body>
+  <div class="aura"></div>
+  <div class="aura"></div>
+
+  <main>
+    <h1>Dynotic Sedang Dalam Waktu Istirahat</h1>
+    <p>Kami akan kembali beroperasi sesuai hari kerja dan jam operasional resmi.<br>
+    Terima kasih telah memahami masa rehat kami.</p>
+    <a href="#" class="btn">Kembali ke Halaman Utama</a>
+  </main>
+
+  <footer>
+    <img src="https://i.imgur.com/pjsLOFr.png" alt="Dynotic Logo">
+  </footer>
+
+  <audio id="bgMusic" loop>
+    <source src="https://k.top4top.io/m_3588b4xl00.mp3" type="audio/mpeg">
+    Browser kamu tidak mendukung audio.
+  </audio>
+
+  <script>
+    const audio = document.getElementById('bgMusic');
+    document.addEventListener('click', () => {
+      audio.play().catch(() => {});
+    }, { once: true });
+  </script>
+</body>
+</html>
